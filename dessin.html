@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Définir son univers
+        créatif-Espace de travail</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #292F36;
+            line-height: 1.6;
+        }
+
+        /* Couleurs */
+        :root {
+            --primary: #e76d5ded;
+            --secondary: #5dd63133;
+            --accent: #8febb4;
+            --dark: #000000;
+            --grapefruit: #e76d5ded;
+            --coconut: #818f7821;
+            --coconuts: #395a3e;
+
+            --passionfruit: #ffffff;
+            --dragonfruit: #80a3b9;
+            --ginger: #FCE46E;
+            --white: #FFFFFF;
+        }
+
+        /* Header */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 230, 109, 0.2), rgba(78, 205, 196, 0.2));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 0 20px;
+            text-align: center;
+
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+
+            color: #e76d5ded;
+
+        }
+
+        h2 h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #381815;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #331538;
+            transform: translateY(-3px);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+
+        }
+
+        /* Section Objectif */
+        #objectif {
+            background-color: var(--coconut);
+        }
+
+        .fruit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .fruit-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .fruit-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fruit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .fruit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .grapefruit {
+            background-color: var(--grapefruit);
+            color: var(--white);
+        }
+
+        .coconuts {
+            background-color: var(--coconuts);
+            color: var(--dark);
+            border: 2px solid #e2e8f0;
+        }
+
+        .passionfruit {
+            background-color: var(--passionfruit);
+            color: var(--white);
+        }
+
+        .dragonfruit {
+            background-color: var(--dragonfruit);
+            color: var(--white);
+        }
+
+        .ginger {
+            background-color: var(--ginger);
+            color: var(--white);
+        }
+
+        .content-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        /* Section Réflexion */
+        #reflexion {
+            background: linear-gradient(90deg, rgba(255, 230, 109, 0.1), rgba(78, 205, 196, 0.1));
+        }
+
+        .reflexion-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .reflexion-content {
+                flex-direction: row;
+            }
+
+            .reflexion-column {
+                width: 50%;
+            }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .image-box {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #404485;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-box:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* Section Inspirations */
+        #inspirations {
+            background-color: var(--dark);
+            background-image: radial-gradient(circle, var(--primary) 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        #inspirations .section-title {
+            color: var(--white);
+            background-color: #404485;
+            display: inline-block;
+            padding: 8px 32px;
+            border-radius: 50px;
+        }
+
+        .inspiration-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .inspiration-columns {
+                flex-direction: row;
+            }
+
+            .inspiration-column {
+                width: 50%;
+            }
+        }
+
+        .inspiration-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .inspiration-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .inspiration-box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Appliquer les animations */
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+
+        .typographie-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .typographie-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .typographie-text {
+            flex: 1 1 500px;
+        }
+
+        .typographie-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .typographie-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .typographie-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .typographie-image img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mockup-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .mockup-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .mockup-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .mockup-gallery img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .mockup-gallery img {
+                width: 100px;
+            }
+        }
+
+        .figma-button-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .figma-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0014B8;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .figma-button:hover {
+            background-color: #404485;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Dessin illustration</h1>
+            <h2> autodidacte Loisirs </h2>
+            <p class="intro-text">
+
+                Projet réalisé sur Affinity Photo Publishir </p>
+            <a href="#objectif" class="btn animate-slide-up">explorer
+            </a>
+
+        </div>
+
+    </header>
+
+    <section class="typographie-section">
+        <div class="typographie-container">
+            <div class="typographie-text">
+                <h2>le pointillisme</h2>
+
+                Le <strong> pointillisme </strong> est une technique qui me passionne profondément. Ce qui m’attire dans
+                cette approche, c’est le processus lent, patient et minutieux qu’elle demande. Chaque point posé sur la
+                feuille est un acte délibéré, presque méditatif. Il ne s’agit pas simplement de dessiner, mais de
+                construire une image par l’accumulation, la répétition et la précision.
+
+                Ce travail méticuleux me pousse à me concentrer, à me recentrer, et m’offre un vrai moment de calme
+                intérieur. C’est une forme d’engagement artistique total, où chaque détail compte et où la progression
+                se fait presque imperceptiblement, point après point.
+
+                J’associe souvent cette pratique à l’écoute de musique. La musique m’aide à me plonger dans un état de
+                concentration intense, presque hypnotique. Elle accompagne le rythme lent de mes gestes, et transforme
+                chaque session de travail en un moment de connexion entre mon esprit, ma main et le son. Cela devient
+                une expérience sensorielle complète et apaisante.
+
+                Le pointillisme m'apprend aussi la valeur du temps et de la persévérance. Rien n’est immédiat, tout se
+                mérite à force de patience et de constance. C’est ce qui rend cette technique si riche et satisfaisante
+                pour moi. </p>
+            </div>
+            <div class="typographie-image">
+                <img src="image/ho.webp" alt="Exemple de typographie personnalisée">
+                <img src="image/hot.webp" alt="Exemple de typographie personnalisée">
+                <img src="image/hott.webp" alt="Exemple de typographie personnalisée">
+            </div>
+        </div>
+        <section class="typographie-section">
+            <div class="typographie-container">
+                <div class="typographie-text">
+                    <h2>Bouteille Channel N°5</h2>
+
+                    Ce travail en pointillisme représente une bouteille en verre transparente, un objet complexe à
+                    illustrer car il faut jouer subtilement avec les ombres, les reflets et la lumière. J’ai choisi
+                    cette technique pour sa capacité à capturer les détails fins, la délicatesse des formes et les
+                    effets de transparence.
+                </div>
+                <div class="typographie-image">
+                    <img src="image/channel.webp" alt="Exemple de typographie personnalisée">
+                    <img src="image/chan.webp" alt="Exemple de typographie personnalisée">
+                </div>
+            </div>
+            <section class="typographie-section">
+                <div class="typographie-container">
+                    <div class="typographie-text">
+                        <h2>le fusain</h2>
+                        Le fusain est un médium que j’ai découvert par moi-même, en autodidacte. C’est cette liberté
+                        d’exploration et d’apprentissage personnel qui m’a tout de suite plu. J’ai été attiré par son
+                        aspect brut, direct, presque instinctif.
+
+                        Ce que j’aime particulièrement avec le fusain, c’est le contact physique qu’il impose. On
+                        dessine, mais on touche, on estompe, on étale avec les doigts. Il y a une proximité avec la
+                        matière qui est très différente des autres techniques : le geste devient plus corporel, plus
+                        spontané. On sent littéralement le dessin se construire sous ses mains.
+
+                        Le noir profond du fusain permet de jouer sur les contrastes, les ombres et les textures, ce qui
+                        donne beaucoup de force et d'expressivité au rendu. C’est une technique qui m’a permis de mieux
+                        comprendre le volume, la lumière et la sensibilité du trait.
+
+                        Apprendre le fusain seul m’a aussi permis de développer mon propre style, d’expérimenter sans
+                        contraintes. C’est un outil qui me connecte à l’essentiel : une feuille, mes mains, et l’envie
+                        de faire naître une image.
+                        <div class="typographie-image">
+                            <img src="image/fusain.webp" alt="Exemple de typographie personnalisée">
+                        </div>
+                    </div>
+                    <section class="typographie-section">
+                        <div class="typographie-container">
+                            <div class="typographie-text">
+                                <h2>L’aquarelle</h2>
+
+                                Je pratique l’aquarelle depuis environ trois ans, un médium qui m’a toujours attiré par
+                                sa fluidité, sa transparence et sa capacité à créer des ambiances douces ou intenses
+                                selon les gestes. Contrairement à d'autres techniques plus rigides, l’aquarelle laisse
+                                une place à l’imprévu, ce qui m’oblige à m’adapter en permanence — et c’est justement ce
+                                que j’aime.
+
+                                Même si je travaille beaucoup en autodidacte, j’ai eu la chance d’être accompagné
+                                ponctuellement par une artiste professionnelle, avec qui je pratiquais durant mon temps
+                                libre. Ces échanges m’ont permis de comprendre les bases techniques, comme la gestion de
+                                l’eau, les superpositions ou encore le contrôle du pigment, tout en gardant une grande
+                                liberté d’expérimentation.
+                            </div>
+                            <div class="typographie-image">
+                                <img src="image/bou (2).webp" alt="Exemple de typographie personnalisée">
+
+                            </div>
+                        </div>
+                        <section class="typographie-section">
+                            <div class="typographie-container">
+                                <div class="typographie-text">
+                                    <h2> La peinture</h2>
+                                    Même si je pratique la peinture plus rarement, c’est une technique que j’apprécie
+                                    particulièrement pour la liberté de geste qu’elle offre et pour les mélanges de
+                                    couleurs qu’elle permet de créer. J’aime expérimenter, superposer, associer des
+                                    teintes inattendues et voir comment elles interagissent entre elles sur le support.
+                                    <div class="typographie-image">
+                                        <img src="image/nec.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/pein.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/chau.webp" alt="Exemple de typographie personnalisée">
+
+
+                                    </div>
+                                </div>
+                                            <section class="typographie-section">
+                            <div class="typographie-container">
+                                <div class="typographie-text">
+                                    <h2> Bic et crayon à encre </h2>
+                                    Le bic et le crayon à encre sont des outils que j’apprécie particulièrement pour leur capacité à capturer une idée sur l’instant, tout en demandant une maîtrise du geste et une grande précision.
+
+Avec ces médiums, aucune erreur n’est effaçable : chaque trait compte, ce qui m'oblige à être patient, concentré, et pleinement présent dans ce que je fais. Cela développe chez moi un sens du détail et une vraie rigueur artistique.
+
+J’aime aussi le contraste qu’ils offrent entre la spontanéité du croquis rapide et la richesse graphique qu’on peut atteindre avec des hachures, des lignes répétées ou des jeux d’ombre. C’est un travail à la fois technique et intuitif, qui me permet de créer des œuvres à la fois brutes et expressives.
+                                    <div class="typographie-image">
+                                        <img src="image/cra.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/corp.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/bou.webp" alt="Exemple de typographie personnalisée">
+
+
+                                    </div>
+                                </div>
+                                 <section class="typographie-section">
+                            <div class="typographie-container">
+                                <div class="typographie-text">
+                                    <h2> Le crayon de couleur</h2>
+                                   Le crayon de couleur est un médium que j’apprécie pour sa polyvalence et sa précision. Il permet à la fois de travailler les détails finement et d'explorer des effets plus libres grâce aux superpositions et aux dégradés que l’on peut créer.
+
+J’aime particulièrement l’utiliser car il offre un contrôle total sur ce que je veux exprimer, tout en gardant une certaine souplesse dans les gestes. Chaque teinte peut être dosée, modulée, estompée, ce qui donne une grande richesse à l’image.
+
+C’est aussi un outil très accessible, que j’utilise spontanément, souvent pour exprimer des émotions ou des idées rapidement, tout en soignant l’aspect visuel. Il m’accompagne dans mon processus créatif au quotidien.<div class="typographie-image">
+                                        <img src="image/tim.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/pampl.webp" alt="Exemple de typographie personnalisée">
+                                        <img src="image/yeux.webp" alt="Exemple de typographie personnalisée">
+
+
+                                    </div>
+                                </div>
+                                      
+                                    
+                                   
+
+</div>
+</div>
+                                    </div>
+                                </div>
+                          
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+            </section>
+        </section>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Dessin illustration</h2>
+                    <p>Création d'identités visuelles </p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"></a>
+                    <a href="#" aria-label="Pinterest"></a>
+                    <a href="#" aria-label="Behance"></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p> 2025 Dessin illustration. </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

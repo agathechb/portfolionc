@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Définir son univers
+ créatif-Espace de travail</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #292F36;
+            line-height: 1.6;
+        }
+
+        /* Couleurs */
+        :root {
+            --primary: #9b8058;
+            --secondary: #d6d63133;
+            --accent: #FFE66D;
+            --dark: #000000;
+            --grapefruit: #8f7b4ea7;
+            --coconut: #796e5a1a;
+            --coconuts: #151b38;
+
+            --passionfruit: #45443d;
+            --dragonfruit: #80a3b9;
+            --ginger: #FCE46E;
+            --white: #FFFFFF;
+        }
+
+        /* Header */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 230, 109, 0.2), rgba(78, 205, 196, 0.2));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+
+            color: #967f5e;
+
+        }
+
+        h2 h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #331538;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #331538;
+            transform: translateY(-3px);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Objectif */
+        #objectif {
+            background-color: var(--coconut);
+        }
+
+        .fruit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .fruit-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .fruit-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fruit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .fruit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .grapefruit {
+            background-color: var(--grapefruit);
+            color: var(--white);
+        }
+
+        .coconuts {
+            background-color: var(--coconuts);
+            color: var(--dark);
+            border: 2px solid #e2e8f0;
+        }
+
+        .passionfruit {
+            background-color: var(--passionfruit);
+            color: var(--white);
+        }
+
+        .dragonfruit {
+            background-color: var(--dragonfruit);
+            color: var(--white);
+        }
+
+        .ginger {
+            background-color: var(--ginger);
+            color: var(--white);
+        }
+
+        .content-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        /* Section Réflexion */
+        #reflexion {
+            background: linear-gradient(90deg, rgba(255, 230, 109, 0.1), rgba(78, 205, 196, 0.1));
+        }
+
+        .reflexion-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .reflexion-content {
+                flex-direction: row;
+            }
+
+            .reflexion-column {
+                width: 50%;
+            }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .image-box {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #404485;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-box:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* Section Inspirations */
+        #inspirations {
+            background-color: var(--dark);
+            background-image: radial-gradient(circle, var(--primary) 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        #inspirations .section-title {
+            color: var(--white);
+            background-color: #404485;
+            display: inline-block;
+            padding: 8px 32px;
+            border-radius: 50px;
+        }
+
+        .inspiration-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .inspiration-columns {
+                flex-direction: row;
+            }
+
+            .inspiration-column {
+                width: 50%;
+            }
+        }
+
+        .inspiration-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .inspiration-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .inspiration-box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Appliquer les animations */
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+
+        .typographie-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .typographie-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .typographie-text {
+            flex: 1 1 500px;
+        }
+
+        .typographie-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .typographie-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .typographie-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .typographie-image img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mockup-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .mockup-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .mockup-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .mockup-gallery img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .mockup-gallery img {
+                width: 100px;
+            }
+        }
+
+        .figma-button-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .figma-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0014B8;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .figma-button:hover {
+            background-color: #404485;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>DÉFINIR MON ANIMAL TOTEM</h1>
+            <h2> EXPLORATION DU SYSTÈME DE
+ REPRÉSENTATION DE L'ANIMAL</h2>
+            <p class="intro-text">
+              LE CHEMINEMENT CRÉATIF
+Projet réalisé sur Affinity Designer et Photo pour les touches de lumière et les détails.  
+Et tablette graphique          </p>
+            <a href="#objectif" class="btn animate-slide-up">explorer
+</a>
+        </div>
+
+    </header>
+
+    <!-- Section 1: Objectif Créatif -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">exploration du système de
+ représentation de l'animal
+
+
+            </h2>
+
+            <div class="container">
+                <p class="intro-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+  <p>  <h3> APPROCHE NATURALISTE </p> </h3>
+L’hirondelle est un oiseau qui illustre à la fois l’adaptabilité des espèces
+ migratrices. D’une taille modeste, oscillant entre 17 et 19 cm, elle se
+ distingue par son plumage au dos bleu-noir métallique contrastant avec
+ un ventre blanc crème et une gorge rougeâtre. 
+Et sa longue queue échancrée est une caractéristique marquante.
+ Contrairement à de nombreux oiseaux, l’hirondelle a développé une
+ relation particulière avec les humains, construisant fréquemment ses nids
+ en boue sous les toits des maisons, dans les granges ou sous les avant
+toits.
+   <h3> Savoir-être de l’hirondelle </p> </h3>
+ L’hirondelle incarne des qualités de résilience, d’adaptabilité et de
+ sociabilité qui en font un oiseau à la symbolique forte. Elle est un modèle
+ de persévérance, traversant chaque année des milliers de kilomètres lors
+ de ses migrations,. Ce parcours démontre une détermination et une
+ endurance remarquables. De plus, l’hirondelle est un oiseau
+ profondément lié à la communauté. Elle niche souvent à proximité des
+ habitations humaines et tolère leur présence, témoignant d’une capacité
+ à cohabiter avec d’autres espèces. Enfin, elle est un symbole de fidélité et
+ de constance, revenant chaque année au même nid et restant fidèle à
+ son partenaire, illustrant ainsi la loyauté et l’attachement aux siens.
+ Savoir-faire de l’hirondelle
+  <h3>Sur le plan comportemental </p> </h3>
+ l’hirondelle est une experte du vol. Grâce à son corps et à ses ailes
+ effilées. . Ce travail minutieux de faire des nis demande une précision et
+ une ingéniosité remarquables. Enfin, son talent pour la navigation elle
+ s’oriente à travers de vastes distances en utilisant des repères
+ géographiques par la position du soleil.
+<h3>RESSEMBLANCE AVEC MOI </p> </h3>
+Cet oiseau symbolise parfaitement mes valeurs et ma manière d’être.
+ Elle représente la persévérance et l’endurance, sans jamais
+ abandonner, ce qui fait écho à ma propre détermination. Comme elle, je
+ refuse d’abandonner mes objectifs, quels que soient les obstacles.
+ L’hirondelle est aussi un oiseau sociable, qui vit proche des humains et
+ revient fidèlement .
+ Cette fidélité et cet attachement à son environnement résonnent en
+ moi, car le bien-être de mes proches et de mes amis est une priorité
+ pour moi.
+ En plus de cela, son mode de vie nomade me correspond parfaitement.
+ Elle migre, explore, découvre sans cesse de nouveaux horizons, ce qui
+ fait écho à mon amour du voyage et de la découverte.
+ De plus, l’hirondelle est une véritable artiste du ciel, avec ses vols
+ gracieux et précis. Cette habileté m’inspire et me rappelle mon goût
+ pour la précision et la rigueur dans mes passions, notamment dans l’art
+ et le dessin.
+
+
+            </div>
+        </div>
+    </section>
+         <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Le cheminement créatif</h3>
+
+                    <p style="margin-bottom: 1.5rem;">
+                       Inspiration et choix du symbole:
+                       
+ Le point de départ de mon projet a été l’hirondelle. Cette première
+ étape a été marquée par une phase de réflexion et de recherche, ou j’ai
+ étudié différentes représentations d’hirondelles pour mieux comprendre
+ leur morphologie, leur posture et leurs couleurs.
+ . Cela m’a permis d’établir une base solide pour la suite du travail.     </div>
+
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;"> Couleur : Principalement présentes</h3>
+
+                <div class="fruit-grid">
+                    <!-- Grapefruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon grapefruit"></div>
+                        <h3>#F0E4D1</h3>
+                    </div>
+
+                    <!-- Coconut Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon coconuts"></div>
+                        <h3>#331538</h3>
+                    </div>
+
+                    <!-- Passionfruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon passionfruit"></div>
+                        <h3>312D4E</h3>
+                    </div>
+
+                    <!-- Dragonfruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon dragonfruit"></div>
+                        <h3>BAA0B6</h3>
+                    </div>
+
+                   
+                </div>
+               <div class="typographie-image">
+                                        <img src="image/eX (2).webp" alt="Mockup canette">
+               <img src="image/ex.webp" alt="Mockup canette">
+
+                                        </div>
+               
+                                </section>
+    <!-- Section 2: Réflexion Graphique -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">Croquis et premières esquisses</h2>
+
+            <div class="reflexion-content">
+                <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Première Approche </h3>
+                    <p style="margin-bottom: 1.5rem;">
+                     Croquis et premières esquisses
+ Après cette phase de recherche, j’ai commencé à visualiser plusieurs
+ versions de mon hirondelle. L’objectif était de trouver une posture qui
+ exprime à la fois la pause et la réflexion, tout en conservant son corp
+ reconnaissables.
+ . Cette étape m’a permis d’expérimenter avec la forme générale de
+ l’hirondelle avant d’affiner les détails et d ajouter des éléments extérieurs.
+
+                </div>
+            </div>
+
+                     <section class="typographie-section">
+                    <div class="typographie-container">
+                        <div class="typographie-text">
+                     Choix et ajout des éléments symboliques
+ Une fois la base de l’hirondelle définie, j’ai réfléchi aux éléments
+ complémentaires qui viendraient s’ajouter à l’illustration et renforcer son
+ message.
+ Le blazer bleu : J’ai choisi d’habiller l’hirondelle avec un blazer pour symboliser
+ l’organisation, le professionnalisme et la rigueur, tout en conservant une
+ certaine élégance et pour humanisé de manière subtile.
+ Le livre : Placé sous ses pattes, il représente mon apprentissage et
+ l’accumulation des connaissances, une métaphore de mon parcours et de mon
+ évolution.
+ Les logiciels Affinity : Sortant du livre, ils illustrent les compétences que
+ j’acquiers au fil de ma formation et témoignent de mon approche
+ pluridisciplinaire.
+ Le collier : Élément personnel, il symbolise une alternative de parcours et mon
+ amour pour la finesse et l’esthétique.
+ Mise en couleur 
+Après  j’ai travaillé sur la mise en couleur. 
+<p></p>Mon objectif était de conserver une
+ palette douce et chaleureuse pour l’hirondelle fidèle et, en accord avec ses
+ couleurs naturelles.
+ J’ai également joué sur les contrastes pour que les différents éléments se
+ démarquent tout en restant cohérents entre eux. Le blazer bleu apporte une
+ touche de vif attire l’attention et lui donne une présence marquée.
+          </p>
+                        </div>
+                        <div class="typographie-image">
+                            <img src="image/gris.webp" alt="Exemple de typographie personnalisée">
+                        </div>
+                    </div>
+        
+                                           <div class="mockup-gallery">
+                                        <img src="image/gri.webp" alt="Mockup canette">
+                                      </div>  <div class="mockup-gallery">
+                           <img src="image/oise.webp" alt="Mockup canette">
+
+                                       </div>   
+    </section>
+    <!-- Section 3: Objectif Créatif -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">Création du décor
+
+            </h2>
+
+            <div class="container">
+                <p class="intro-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+
+                <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;"></h3>
+
+                    <p style="margin-bottom: 1.5rem;">
+                          <section class="typographie-section">
+                    <div class="typographie-container">
+                        <div class="typographie-text">
+               Enfin, j’ai conçu le décor en choisissant un environnement sombre, en
+ contraste avec la nature lumineuse de l’hirondelle.
+ J’ai cherché à rendre cette atmosphère immersive en utilisant des
+ nuances tamisées et une ambiance brumeuse de plus le personnage
+ part la présence de ces couleur vif ressort plus sur mon choix de décor.
+           </div>
+                        <div class="typographie-image">
+                            <img src="image/exterieur.webp" alt="Exemple de typographie personnalisée">
+                        </div>
+                    </div>
+  
+                                    <p style="margin-bottom: 1.5rem;">
+<h3>Travail principalement réalisé avec l’outil Procreate</h3>
+                               
+                        </div>
+                        <div class="mockup-gallery">
+                                        <img src="image/fond.webp"   
+                                        alt="Exemple de typographie personnalisée">
+     <img src="image/fonds.webp"                                           
+                                        alt="Exemple de typographie personnalisée">
+                                    </div>
+                                    </div>
+                                    
+                      
+                                           
+                                        </div>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    <!-- Footer -->
+                                    <footer>
+                                        <div class="container">
+                                            <div class="footer-content">
+                                                <div class="footer-logo">
+                                                    <h2>DÉFINIR MON ANIMAL TOTEM</h2>
+                                                    <p>Création d'identités visuelles </p>
+                                                </div>
+
+                                                <div class="social-links">
+                                                    <a href="#" aria-label="Instagram"></a>
+                                                    <a href="#" aria-label="Pinterest"></a>
+                                                    <a href="#" aria-label="Behance"></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="footer-bottom">
+                                                <p> 2025 DÉFINIR MON ANIMAL TOTEM. </p>
+                                            </div>
+                                        </div>
+                                    </footer>
+</body>
+
+</html>
+

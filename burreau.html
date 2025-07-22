@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Définir son univers
+ créatif-Espace de travail</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #292F36;
+            line-height: 1.6;
+        }
+
+        /* Couleurs */
+        :root {
+            --primary: #331538;
+            --secondary: #d631d133;
+            --accent: #FFE66D;
+            --dark: #000000;
+            --grapefruit: #a54ecd33;
+            --coconut: #f7e8f651;
+            --coconuts: #331538;
+
+            --passionfruit: #312D4E;
+            --dragonfruit: #baa0b6;
+            --ginger: #FCE46E;
+            --white: #FFFFFF;
+        }
+
+        /* Header */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 230, 109, 0.2), rgba(78, 205, 196, 0.2));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+
+            color: #331538;
+
+        }
+
+        h2 h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #331538;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #331538;
+            transform: translateY(-3px);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Objectif */
+        #objectif {
+            background-color: var(--coconut);
+        }
+
+        .fruit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .fruit-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .fruit-card {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fruit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .fruit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .grapefruit {
+            background-color: var(--grapefruit);
+            color: var(--white);
+        }
+
+        .coconuts {
+            background-color: var(--coconuts);
+            color: var(--dark);
+            border: 2px solid #e2e8f0;
+        }
+
+        .passionfruit {
+            background-color: var(--passionfruit);
+            color: var(--white);
+        }
+
+        .dragonfruit {
+            background-color: var(--dragonfruit);
+            color: var(--white);
+        }
+
+        .ginger {
+            background-color: var(--ginger);
+            color: var(--white);
+        }
+
+        .content-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        /* Section Réflexion */
+        #reflexion {
+            background: linear-gradient(90deg, rgba(255, 230, 109, 0.1), rgba(78, 205, 196, 0.1));
+        }
+
+        .reflexion-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .reflexion-content {
+                flex-direction: row;
+            }
+
+            .reflexion-column {
+                width: 50%;
+            }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .image-box {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #404485;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-box:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* Section Inspirations */
+        #inspirations {
+            background-color: var(--dark);
+            background-image: radial-gradient(circle, var(--primary) 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        #inspirations .section-title {
+            color: var(--white);
+            background-color: #404485;
+            display: inline-block;
+            padding: 8px 32px;
+            border-radius: 50px;
+        }
+
+        .inspiration-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .inspiration-columns {
+                flex-direction: row;
+            }
+
+            .inspiration-column {
+                width: 50%;
+            }
+        }
+
+        .inspiration-box {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .inspiration-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .inspiration-box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Appliquer les animations */
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+
+        .typographie-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .typographie-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .typographie-text {
+            flex: 1 1 500px;
+        }
+
+        .typographie-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .typographie-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .typographie-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .typographie-image img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mockup-section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .mockup-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .mockup-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .mockup-gallery img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .mockup-gallery img {
+                width: 100px;
+            }
+        }
+
+        .figma-button-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .figma-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0014B8;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .figma-button:hover {
+            background-color: #404485;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>BUREAU</h1>
+            <h2>Initiation à la création d'identités visuelles</h2>
+            <p class="intro-text">
+                Découvrez mon processus créatif pour développer une identité visuelle. Ce projet s’inscrit dans une esthétique minimaliste et contemporaine.
+Projet réalisé sur Affinity Designer et Photo pour les touches de lumière et les détails.            </p>
+            <a href="#objectif" class="btn animate-slide-up">explorer
+</a>
+
+        </div>
+
+    </header>
+
+    <!-- Section 1: Objectif Créatif -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">Axes de direction artistique
+
+
+            </h2>
+
+            <div class="container">
+                <p class="intro-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+                   Ce projet s’inscrit dans une esthétique minimaliste et contemporaine, où chaque
+ élément est pensé pour allier fonctionnalité et esthétisme. Le bureau encastré dans le
+ mur devient l’élément central, structurant l’espace tout en favorisant d’être un cadre
+ apaisant et stimulant, une bulle où l’esprit peut se libérer des distractions extérieures.
+ L’ambiance repose sur un jeu subtil entre ombre et lumière. L’éclairage tamisé ne sert
+ pas seulement à illuminer, mais à mettre en valeur certains éléments, à donner du
+ relief et de la profondeur à la pièce. Chaque source lumineuse est pensée comme un
+ point d’accent, attirant le regard sur des objets qui ont du sens, des repères visuels
+ qui nourrissent la réflexion et l’inspiration Ce bureau est un refuge personnel, un lieu
+ qui évolue avec moi et dans lequel je me reconnais. Il n’est ni figé ni strictement
+ organisé,.
+
+            </div>
+        </div>
+    </section>
+         <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Couleur</h3>
+
+                    <p style="margin-bottom: 1.5rem;">
+                       La palette de couleurs joue sur un équilibre entre contrastes et douceur. Le bleu nuit
+ et le noir enveloppent l’espace et créent une atmosphère immersive, favorisant la
+ concentration et l’introspection. À l’inverse, les touches de rose poudré et de blanc ,
+ apportant de la légèreté, une respiration visuelle qui adoucit l’ensemble. Ce qui crée
+ un espace à la fois apaisant et dynamique.       </div>
+
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;"> Couleur : Principalement présentes</h3>
+
+                <div class="fruit-grid">
+                    <!-- Grapefruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon grapefruit"></div>
+                        <h3>#F0E4D1</h3>
+                    </div>
+
+                    <!-- Coconut Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon coconuts"></div>
+                        <h3>#331538</h3>
+                    </div>
+
+                    <!-- Passionfruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon passionfruit"></div>
+                        <h3>312D4E</h3>
+                    </div>
+
+                    <!-- Dragonfruit Card -->
+                    <div class="fruit-card">
+                        <div class="fruit-icon dragonfruit"></div>
+                        <h3>BAA0B6</h3>
+                    </div>
+
+                   
+                </div>
+                <section class="typographie-section">
+                        <div class="typographie-container">
+                            <div class="typographie-text">
+                                <section class="mockup-section">
+                                    <h3>Conception </h3>
+                                    <div class="mockup-gallery">
+                                        <img src="image/Capture d'écran 2025-07-22 094126.webp" alt="Mockup canette">
+                                        </div>
+                                </section>
+    <!-- Section 2: Réflexion Graphique -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">Réflexion graphique et évolution du style</h2>
+
+            <div class="reflexion-content">
+                <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Première Approche Réaliste</h3>
+                    <p style="margin-bottom: 1.5rem;">
+                       L’éclairage tamisé et les couleurs chaleureuses créent une ambiance réconfortante,
+ propice à la concentration, à la créativité et aux instants de calme. C’est un espace
+ qui me ressemble, à la croisée de la créativité, des souvenirs et de la solitude choisie. </p>
+
+
+                </div>
+            </div>
+
+            <div class="reflexion-column">
+                <p style="margin-bottom: 1.5rem;">
+                     L’objectif est de concevoir un espace organisé et inspirant le bureau encastré
+ renforce la sensation d’un lieu dédié, où l’on se coupe du tumulte extérieur pour mieux
+ se recentrer. La fenêtre qui ouvre sur l’extérieur joue un rôle essentiel avec le moment
+ de la journée choisi. Le coucher du soleil, ce moment où les couleurs changent et où
+ la lumière devient plus douce, est une source d’apaisement et d’inspiration et de
+ calme. 
+</p>
+
+            </div>
+        </div>
+
+        <div class="content-box" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;">Processus de Recherche</h3>
+            <p>
+               J’ai souhaité me démarquer en adoptant une approche qui va au-delà du simple
+ bureau. Mon objectif était de mettre en valeur non seulement l’espace de travail,
+ mais aussi l’environnement qui l’entoure, car il joue un rôle essentiel dans ma réflexion
+ et mon processus créatif. Chaque élément contribue à nourrir mon inspiration et à
+ structurer ma pensée, créant ainsi une atmosphère propice à la concentration et à la
+ créativité.
+ J’ai commencé mon travail en réalisant les premiers croquis de mon bureau encastré,
+ intégrant des meubles et des étagères pour organiser mes effets personnels tout en
+ conservant une esthétique épurée. Pour donner forme à cette idée, j’ai utilisé Affinity
+ Designer, en construisant la structure à partir de formes simples, afin de définir un
+ agencement à la fois fonctionnel et harmonieux </div>
+  <div class="mockup-gallery">
+                                        <img src="image/Capture d'écran 2025-07-22 094141.webp" alt="Mockup canette">
+                                        </div>
+        </div>
+    </section>
+
+
+    <!-- Section 3: Objectif Créatif -->
+    <section id="objectif">
+        <div class="container">
+            <h2 class="section-title">Éléments sémiotiques
+ Les objets présents 
+
+            </h2>
+
+            <div class="container">
+                <p class="intro-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+
+                <div class="reflexion-column">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;"></h3>
+
+                    <p style="margin-bottom: 1.5rem;">
+               Le fusain et les outils de dessin 
+ Élément central de mon processus créatif, le fusain est un symbole de liberté et
+ d’expression artistique. Son utilisation demande précision et maîtrise, mais offre
+ également un champ d’expérimentation infini, reflétant ma manière d’aborder la
+ création. Placé aux côtés de mes croquis, crayons et carnets, il illustre mon besoin de
+ manipuler la matière, de passer par le geste pour donner naissance à des idées.</div>
+       
+                <section class="typographie-section">
+                    <div class="typographie-container">
+                        <div class="typographie-text">
+                            
+                        <p><strong>La valise et le passeport  </p></strong>
+ Ils représentent mon amour du voyage, de la découverte et de l’exploration. Ces
+ objets ne sont pas de simples accessoires, mais des symboles d’une curiosité sans
+ frontières, d’un refus de la routine et d’un désir constant d’apprentissage. Leur
+ présence rappelle que chaque expérience, chaque rencontre nourrit ma créativité et
+ mon évolution personnelle.
+ <p><strong>Trieur </p></strong><P>
+ L’organisation occupe une place essentielle dans mon quotidien. Le trieur n’est pas
+ qu’un simple objet pratique : il est le reflet de mon besoin de structurer mon espace
+ mental et physique. Son usage traduit une volonté d’anticipation, de gestion efficace
+ du temps et de réduction du stress, un élément clé dans mon processus de travail.
+ <p><strong>Casque Sony</p></strong><p>
+ Plus qu’un accessoire, il est mon refuge sonore. La musique me permet de me
+ concentrer, de me couper du bruit extérieur et d’entrer dans un état de flow créatif.
+ Cet objet représente également mon besoin de solitude choisie, un équilibre entre
+ immersion dans mon univers et ouverture aux interactions extérieures lorsque
+ nécessaire.
+                               </p>
+                        </div>
+                        <div class="typographie-image">
+                            <img src="image/burreau (1).webp" alt="Exemple de typographie personnalisée">
+                        </div>
+                    </div>
+
+                    <p style="margin-bottom: 3rem;">
+                        <p><strong>Photo de ma grand mère</p></strong> 
+ Un objet à forte valeur sentimentale. Plus qu’un simple souvenir, cette photo est une
+ source d’inspiration et de motivation, un ancrage dans mon histoire personnelle. Elle
+ témoigne d’un lien affectif fort et rappelle l’importance des racines, des valeurs
+ transmises et du soutien familial dans mon parcours.
+</p><p><strong>Plantes </p></strong> 
+Elles apportent une touche de vie et de sérénité à l’espace. Symboles de croissance,
+ de renouveau et d’équilibre, elles créent un lien avec la nature, un rappel de
+ l’importance de l’environnement et du bien-être dans mon quotidien. Dans un décor
+ sombre et structuré, elles contrastent en ajoutant une dimension plus organique et
+ vivante.
+
+ </p><p><strong>PC  </p></strong>
+Il représente mon outil de travail principal, un pont entre la création et la
+ concrétisation de mes idées. Il incarne à la fois la modernité, la connectivité et
+ l’adaptabilité, essentiels à mon activité. Il est le centre névralgique de ma production
+ numérique, un espace où convergent projets artistiques, recherches et
+ expérimentations.
+ </p><p><strong>Chemise blanche </p></strong>
+Ce vêtement symbolise le professionnalisme et la rigueur, mais aussi une certaine
+ fluidité entre les sphères personnelle et professionnelle. Elle traduit une attention
+ portée aux détails et une volonté d’équilibre entre décontraction et exigence. Le
+ choix du blanc renforce cette idée de simplicité maîtrisée et d’élégance discrète.
+ </p><p>
+    <div class="typographie-image">
+                                        <img src="image/Capture d'écran 2025-07-22 103000.webp" alt="Mockup canette">
+ 
+  </div> </div><p><strong>Les affiches et dessins au mur </p></strong> 
+Ils ne sont pas de simples décorations, mais des fragments de mon parcours
+ artistique, des témoins de mon évolution créative. Exposer mes propres œuvres est
+ une manière d’affirmer mon identité visuelle, de m’inspirer de mon propre travail et de
+ garder en vue les projets qui me tiennent à cœur.
+ </p><p>
+    <div class="mockup-gallerys">
+                                        <img src="image/Capture d'écran 2025-07-22 102951.webp" alt="Mockup canette">
+                                       
+    <p><strong>Le plaid </p></strong>
+ C’est un symbole de douceur et de réconfort. Il évoque pour moi un cocon qui
+ renforce le sentiment d’intimité dans l’espace.
+ Il adoucit les lignes droites du mobilier soulignant une transition entre le travail et la
+ détente, entre la concentration et le lâcher-prise.
+</p><p><strong>La lampe</p></strong>
+ Au-delà de sa fonction première d’éclairage, la lampe de bureau structure l’espace,
+ oriente le regard ici pour mettre en lumière mon travail artistique se créant devant
+ vous, et influence l’ambiance créant une bulle lumineuse qui favorise la
+ concentration, l’inspiration et le confort de plus il évoque un espace studieux où l'on
+ se plonge dans ses tâches avec sérieux permettant d’y voir plus clair.
+
+                            <section class="typographie-section">
+                                <div class="typographie-container">
+                                    <div class="typographie-text">
+                                        <h3>Éléments sémiotiques
+ Composition et espace</h3>
+                                        <p>
+                                            L’organisation du bureau suit une composition bien pensée où chaque élément
+ trouve sa place tout en conservant une impression d’espace épuré.
+ <p><strong> Le meuble encastré  </p></strong>
+Il structure l’espace et permet d’intégrer harmonieusement les objets tout en
+ conservant une sensation d être seul.
+  <p><strong>Les sources lumineuses  </p></strong>
+Disposées de manière ciblée, elles créent une ambiance feutrée, mettant en valeur
+ les éléments clés sans surcharger l’espace.
+  <p><strong> L’équilibre entre le plein et le vide   </p></strong>
+ La disposition des objets laisse respirer l’espace, favorisant une esthétique
+ minimaliste et apaisante.
+  <p><strong> Le bleu nuit du mur   </p></strong>
+Cette teinte incarne la stabilité, la confiance et la concentration. J’aime travailler
+ dans une ambiance calme et reposante, en particulier le soir, où mon esprit est plus
+ créatif. Le bleu nuit offre un cadre propice à la réflexion, un espace où l’inspiration .
+  <p><strong> Les touches de rose et blanc  </p></strong>
+Le rose apporte une note de douceur, d’ouverture .Associé au blanc, qui reflète la
+ simplicité, cet ensemble crée une atmosphère harmonieuse et inspirante. Les
+ couleurs chaudes et chaleureuses que je choisis traduisent mon dynamisme, ma
+ passion et mon besoin de me sentir bien dans mon environnement.
+                                        </p>
+                                    </div>
+                                    <div class="typographie-image">
+                                        <img src="image/Capture d'écran 2025-07-22 103025.webp"
+                                            alt="Exemple de typographie personnalisée">
+                                    </div>
+                                    </div>
+
+                                <p><strong> Une fenêtre </p></strong>     
+La fenêtre structure l’espace intérieur en créant des zones d’éclairage et d’ombre,
+ influençant l’ambiance et la perception du lieu ici on est au moment de la journée
+ ou on est à la transition entre le coucher du soleil , pause, moment d’introspection et
+ la nuit repli, calme, solitude, parfois mystère ou mélancolie.
+ . Elle est une limite et une connexion, une frontière entre l’espace intime et le monde
+ extérieur. Ici fermée, elle crée un cocon, un espace délimité et sécurisé. 
+                                </div>
+                                <section>
+                                    <p style="margin-bottom: 1.5rem;">
+                                        <h3>Ébauches</h3>
+                                  Les premières esquisses du projet mettent en avant la disposition du bureau dans un
+ mur encastré, l’agencement des objets sur les étagères et le jeu de lumières qui
+ structure l’ambiance de la pièce. L’objectif est de maintenir un équilibre entre sobriété
+ et richesse visuelle, en s’appuyant sur des éléments choisis avec soin.entre
+ l’organisation rigoureuse et l’expression artistique. L’idée est de préserver un espace
+ où l’ordre et le désordre coexistent harmonieusement, où chaque élément raconte une
+ histoire de persévérance et d’évolution.      </p>
+                        </div>
+                        <div class="mockup-gallery">
+                                        <img src="image/Capture d'écran 2025-07-22 103014.webp"   
+                                        alt="Exemple de typographie personnalisée">
+     <img src="image/Capture d'écran 2025-07-22 103025.webp"                                           
+                                        alt="Exemple de typographie personnalisée">
+                                    </div>
+                                    </div>
+                                    
+                      
+                                           
+                                        </div>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    </section>
+                                    <!-- Footer -->
+                                    <footer>
+                                        <div class="container">
+                                            <div class="footer-content">
+                                                <div class="footer-logo">
+                                                    <h2>Burreau</h2>
+                                                    <p>Création d'identités visuelles </p>
+                                                </div>
+
+                                                <div class="social-links">
+                                                    <a href="#" aria-label="Instagram"></a>
+                                                    <a href="#" aria-label="Pinterest"></a>
+                                                    <a href="#" aria-label="Behance"></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="footer-bottom">
+                                                <p> 2025 Burreau. </p>
+                                            </div>
+                                        </div>
+                                    </footer>
+</body>
+
+</html>
+
